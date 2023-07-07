@@ -13,10 +13,10 @@ import '../domain/usecases/post_usecases.dart';
 final getIt = GetIt.instance;
 
 setupDependencies() {
-  getIt.registerSingleton(Logger());
+  getIt.registerSingleton(Logger(filter: null, printer: PrettyPrinter(), output: null));
   getIt.registerSingleton(Dio());
   getIt.registerSingleton(ApiService(getIt.get()));
   getIt.registerSingleton<JsonPlaceHolderRepository>(JsonPlaceholderRepositoryImpl(apiService: getIt.get()));
-  getIt.registerFactory<PostUseCases>(() => PostUseCasesImpl(repository: getIt.get()));
-  getIt.registerFactory<CommentUseCases>(() => CommentUseCasesImpl(repository: getIt.get()));
+  getIt.registerFactory<PostUseCases>(() => PostUseCasesImpl(repository: getIt.get(), logger: getIt.get()));
+  getIt.registerFactory<CommentUseCases>(() => CommentUseCasesImpl(repository: getIt.get(), logger: getIt.get()));
 }
