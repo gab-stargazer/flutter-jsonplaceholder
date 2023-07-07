@@ -9,5 +9,11 @@ extension ToPost on PostDto {
 }
 
 extension ToComment on CommentDto {
-  Comment toComment() => Comment(postId: postId, id: id, name: name, email: email, body: body);
+  Comment toComment() =>
+      Comment(postId: postId, id: id, name: name, email: email, body: body);
+}
+
+extension ToPostDto on Post {
+  PostDto toPostDto() =>
+      PostDto(userId: userId!, id: id!, title: title!, body: body!);
 }

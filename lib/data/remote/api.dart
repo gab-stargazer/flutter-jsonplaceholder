@@ -1,7 +1,7 @@
+import 'package:dio/dio.dart';
 import 'package:json_placeholder_album/data/model/comment_dto.dart';
 import 'package:json_placeholder_album/data/model/post_dto.dart';
 import 'package:retrofit/retrofit.dart';
-import 'package:dio/dio.dart';
 
 part 'api.g.dart';
 
